@@ -22,7 +22,7 @@ while True:
 
 print(players)
 
-max_score = 50
+max_score = 30
 player_scores = [0 for _ in range(players)]
 
 while max(player_scores) < max_score:
