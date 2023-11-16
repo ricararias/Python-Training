@@ -558,14 +558,359 @@ while entrada == False:
 
 #Faça um Programa que peça um número e informe se o número é inteiro ou decimal. 
 #Dica: utilize uma função de arredondamento.
-
+'''
+import math
 numero = float(input("Digite um numero: "))
 
-arred_numero = round(numero)
+arred_numero = int(numero)
 
-if arred_numero - 
+if (numero - arred_numero) == 0:
+    print("O numero digitado é inteiro")
+else:
+    print("O numero digitado é decimal")
+'''
 
+#Faça um Programa que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. 
+# O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+#par ou ímpar;
+#positivo ou negativo;
+#inteiro ou decimal.
 
+'''
+def verifica_par(result_oper):
+    if result_oper % 2 == 0:
+        return True
+    else:
+        return False
 
-
+def verifica_positivo(result_oper):
+    if result_oper > 0:
+        return True
+    else:
+        return False
     
+def verifica_inteiro(result_oper):
+    arrendonda = int(result_oper)
+    if (result_oper - arrendonda) == 0:
+        return True
+    else:
+        return False
+
+numero1 = float(input("Digite um numero: "))
+numero2 = float(input("Digite outro numero: "))
+
+entrada = False
+while entrada == False:
+    operacao= input("Qual operação deseja fazer com esses numeros? (/, *, +, -) ")
+    if operacao == '/' or operacao == '*' or operacao == '+' or operacao == '-':
+        print("Operação será processada!")
+        entrada = True
+    else:
+        print("Operação incorreta, digite a operação desejada: ")
+    
+if operacao == '/':
+    resultado = numero1 / numero2
+elif operacao == '*':
+    resultado = numero1 * numero2
+elif operacao == '+':
+    resultado = numero1 + numero2
+elif operacao == '-':
+    resultado = numero1 - numero2
+
+tipo1= verifica_par(resultado)
+tipo2= verifica_positivo(resultado)
+tipo3= verifica_inteiro(resultado)
+
+print(f'O resultado da operação foi: {resultado}')
+
+if tipo1 == True:
+    print("O resultado é um numero par")
+else:
+    print("O resultado é um numero impar")
+
+if tipo2 == True:
+    print("O resultado é um numero positivo")
+else:
+    print("O resultado é um numero negativo")
+
+if tipo3 == True:
+    print("O resultado é um numero inteiro")
+if tipo3 == False:
+    print("O resultado é um numero decimal")
+'''
+
+#Faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+#"Telefonou para a vítima?"
+#"Esteve no local do crime?"
+#"Mora perto da vítima?"
+#"Devia para a vítima?"
+#"Já trabalhou com a vítima?" 
+#O programa deve no final emitir uma classificação sobre a participação da pessoa no crime. 
+#Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", 
+# entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".
+'''
+entrada = False
+while entrada == False:
+    pergunta1= input("Telefonou para a vítima? (S - N): ")
+    if pergunta1 == 'N' or pergunta1 == 'n' or pergunta1 == 'S' or pergunta1 == 's':
+        entrada = True
+    else:
+        print("Digite 'S' para SIM, ou 'N' para Não: ") 
+
+resposta1 = 0
+if pergunta1 == 'S' or pergunta1 == 's':
+    resposta1 += 1
+
+entrada = False
+while entrada == False:
+    pergunta2= input("Esteve no local do crime? (S - N): ")
+    if pergunta2 == 'N' or pergunta2 == 'n' or pergunta2 == 'S' or pergunta2 == 's':
+        entrada = True
+    else:
+        print("Digite 'S' para SIM, ou 'N' para Não: ") 
+
+resposta2 = 0
+if pergunta2 == 'S' or pergunta2 == 's':
+    resposta2 += 1
+
+
+entrada = False
+while entrada == False:
+    pergunta3= input("Mora perto da vítima? (S - N): ")
+    if pergunta3 == 'N' or pergunta3 == 'n' or pergunta3 == 'S' or pergunta3 == 's':
+        entrada = True
+    else:
+        print("Digite 'S' para SIM, ou 'N' para Não: ") 
+
+resposta3 = 0
+if pergunta3 == 'S' or pergunta3 == 's':
+    resposta3 += 1
+
+
+entrada = False
+while entrada == False:
+    pergunta4= input("Devia para a vítima? (S - N): ")
+    if pergunta4 == 'N' or pergunta4 == 'n' or pergunta4 == 'S' or pergunta4 == 's':
+        entrada = True
+    else:
+        print("Digite 'S' para SIM, ou 'N' para Não: ") 
+
+resposta4 = 0
+if pergunta4 == 'S' or pergunta4 == 's':
+    resposta4 += 1
+
+
+entrada = False
+while entrada == False:
+    pergunta5= input("Já trabalhou com a vítima? (S - N): ")
+    if pergunta5 == 'N' or pergunta5 == 'n' or pergunta5 == 'S' or pergunta5 == 's':
+        entrada = True
+    else:
+        print("Digite 'S' para SIM, ou 'N' para Não: ") 
+
+resposta5 = 0
+if pergunta5 == 'S' or pergunta5 == 's':
+    resposta5 += 1
+
+soma_respostas = resposta1 + resposta2 + resposta3 + resposta4 + resposta5
+
+print(f'{soma_respostas} respostas afirmativas')
+
+if soma_respostas == 2:
+    print("Suspeito")
+elif 4 >= soma_respostas >= 3:
+    print("Cumplice")
+elif soma_respostas == 5:
+    print("Assasino")
+else:
+    print("Inocente")
+'''
+
+#Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+#Álcool:
+#até 20 litros, desconto de 3% por litro
+#acima de 20 litros, desconto de 5% por litro
+#Gasolina:
+#até 20 litros, desconto de 4% por litro
+#acima de 20 litros, desconto de 6% por litro 
+# Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina), 
+# calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50 o preço do litro do álcool é R$ 1,90.
+'''
+print("\nBem-vindo ao POSTO DE COMBUSTÍVEL\n")
+valor_alcool= 1.90
+valor_gasolina= 2.50
+
+entrada = False
+while entrada == False:
+    combustivel = input("Selecione A-álcool, G-gasolina: ")
+    if combustivel == 'A' or combustivel == 'G':
+        if combustivel == 'A':
+            extenso = "Álcool"
+            print(f'\nSelecionado {extenso}, valor do litro: {valor_alcool}')
+            print("Até 20 litros, desconto de 3% por litro \nAcima de 20 litros, desconto de 5% por litro")
+        elif combustivel == 'G':
+            extenso = "Gasolina"
+            print(f'\nSelecionado {extenso}, valor do litro: {valor_gasolina}')
+            print("Até 20 litros, desconto de 4% por litro \nAcima de 20 litros, desconto de 6% por litro\n")
+        entrada = True
+
+entrada = False
+while entrada == False:
+    litros = float(input("\nInforme quantos litros deseja abastecer: "))
+    if litros < 0:
+        print("Não pode ser um valor negativo")
+    else:
+        entrada = True
+
+if combustivel == 'A':
+    if litros <= 20:
+        desconto_a = (litros * valor_alcool) * 0.97
+    if litros > 20:
+        desconto_a = (litros * valor_alcool) * 0.95
+elif combustivel == 'G':
+    if litros <= 20:
+        desconto_g = (litros * valor_gasolina) * 0.96
+    if litros > 20:
+        desconto_g = (litros * valor_gasolina) * 0.94
+
+if combustivel == 'A':
+    print(f'\nO combustivel selecionado foi {extenso}, total de litros  {litros}')
+    print(f'Valor sem desconto: {litros * valor_alcool}')
+    print(f'Valor a pagar, com desconto: {desconto_a}')
+else:
+    print(f'\nO combustivel selecionado foi {extenso}, total de litros {litros}')
+    print(f'Valor sem desconto: {litros * valor_gasolina}')
+    print(f'Valor a pagar, com desconto: {desconto_g}')
+    
+print("\nObrigado pela preferencia!\n")
+'''
+
+#Uma fruteira está vendendo frutas com a seguinte tabela de preços:
+#                      Até 5 Kg           Acima de 5 Kg
+#Morango         R$ 2,50 por Kg          R$ 2,20 por Kg
+#Maçã            R$ 1,80 por Kg          R$ 1,50 por Kg
+#Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total. 
+# Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
+'''
+print("\nFRUTARIA - Bem-vindo!\n")
+
+print("                      Até 5 Kg           Acima de 5 Kg")
+print("Morango         R$ 2,50 por Kg          R$ 2,20 por Kg")
+print("Maçã            R$ 1,80 por Kg          R$ 1,50 por Kg\n")
+
+kg_morango = 0
+kg_maca = 0
+
+kg_morango = float(input("\nQuantos Kg de morango deseja comprar? "))
+kg_maca = float(input("Quantos Kg de maçã deseja comprar? "))
+
+if kg_morango <= 5.00:
+    total_morango = kg_morango * 2.5
+else:
+    total_morango = kg_morango * 2.2
+print(f'\nValor de {kg_morango} Kg de Morango: R${total_morango:,.2f}')
+
+if kg_maca <= 5.00:
+    total_maca = kg_maca * 1.8
+else:
+    total_maca = kg_maca * 1.5
+print(f'Valor de {kg_maca} Kg de Maçã: R${total_maca:,.2f}\n')
+
+kg_total = kg_morango + kg_maca
+preco_total = total_morango + total_maca
+
+print(f'Total: R${preco_total:,.2f}\n')
+
+if kg_total > 8 or preco_total > 25.0:
+    print("Direito ao desconto adicional de 10%")
+    print(f'Valor a pagar com desconto adicional: R${(preco_total * 0.9):,.2f}\n')
+'''
+
+#O Hipermercado Tabajara está com uma promoção de carnes que é imperdível. Confira:
+#                      Até 5 Kg           Acima de 5 Kg
+#File Duplo      R$ 4,90 por Kg          R$ 5,80 por Kg
+#Alcatra         R$ 5,90 por Kg          R$ 6,80 por Kg
+#Picanha         R$ 6,90 por Kg          R$ 7,80 por Kg
+#Para atender a todos os clientes, cada cliente poderá levar apenas um dos tipos de carne da promoção, porém não há limites para a quantidade de carne por cliente. 
+#Se compra for feita no cartão Tabajara o cliente receberá ainda um desconto de 5% sobre o total da compra. 
+# Escreva um programa que peça o tipo e a quantidade de carne comprada pelo usuário e gere um cupom fiscal, 
+# contendo as informações da compra: tipo e quantidade de carne, preço total, tipo de pagamento, valor do desconto e valor a pagar.
+'''
+print("Bem-vindo ao Hipermercado TABAJARA\n")
+print("Confira as promoções de carnes:")
+print("                      Até 5 Kg           Acima de 5 Kg")
+print("File Duplo      R$ 4,90 por Kg          R$ 5,80 por Kg")
+print("Alcatra         R$ 5,90 por Kg          R$ 6,80 por Kg")
+print("Picanha         R$ 6,90 por Kg          R$ 7,80 por Kg\n")
+
+valor_carne_f1= 4.9 
+valor_carne_f2= 5.8
+valor_carne_a1= 5.9
+valor_carne_a2= 6.8
+valor_carne_p1= 6.9
+valor_carne_p2= 7.8
+
+entrada = False
+while entrada == False:
+    print("F - File Duplo\nA - Alcatra\nP - Picanha")
+    escolha_carne= input("Escolha o tipo de carne: ")
+    if escolha_carne == 'F' or escolha_carne == 'A' or escolha_carne == 'P':
+        entrada = True
+        if escolha_carne == 'F':
+            nome_carne = "File Duplo"
+        elif escolha_carne == 'A':
+            nome_carne = "Alcatra"
+        elif escolha_carne == 'P':
+            nome_carne = "Picanha"
+
+entrada = False
+while entrada == False:
+    qtd_carne = float(input("\nQuantos kg de carne deseja? "))
+    if qtd_carne <= 0:
+        print("Valor inválido!")
+    else:
+        entrada = True
+
+entrada = False
+while entrada == False:
+    cartao_loja= input("\nVai utilizar o cartão da loja? S - SIM / N - NAO: ")
+    if cartao_loja == 'S' or cartao_loja == 'N':
+        entrada = True
+print("")
+#Calculando o valor das carnes
+if escolha_carne == 'F' and qtd_carne <= 5:
+    valor_bruto= qtd_carne * valor_carne_f1
+    print('Produto:         Quantidade:         Valor Unitário:         Valor Total:')
+    print(f'{nome_carne}       {qtd_carne}                 {valor_carne_f1}                     {valor_bruto:,.2f}')
+elif escolha_carne == 'F' and qtd_carne > 5:
+    valor_bruto= qtd_carne * valor_carne_f2
+    print('Produto:         Quantidade:         Valor Unitário:         Valor Total:')
+    print(f'{nome_carne}       {qtd_carne}                 {valor_carne_f2}                     {valor_bruto:,.2f}')
+
+if escolha_carne == 'A' and qtd_carne <= 5:
+    valor_bruto= qtd_carne * valor_carne_a1
+    print('Produto:         Quantidade:         Valor Unitário:         Valor Total:')
+    print(f'{nome_carne}       {qtd_carne}                 {valor_carne_a1}                     {valor_bruto:,.2f}')
+elif escolha_carne == 'A' and qtd_carne > 5:
+    valor_bruto= qtd_carne * valor_carne_a2
+    print('Produto:         Quantidade:         Valor Unitário:         Valor Total:')
+    print(f'{nome_carne}       {qtd_carne}                 {valor_carne_a2}                     {valor_bruto:,.2f}')
+
+if escolha_carne == 'P' and qtd_carne <= 5:
+    valor_bruto= qtd_carne * valor_carne_p1
+    print('Produto:         Quantidade:         Valor Unitário:         Valor Total:')
+    print(f'{nome_carne}       {qtd_carne}                 {valor_carne_p1}                     {valor_bruto:,.2f}')
+elif escolha_carne == 'P' and qtd_carne > 5:
+    valor_bruto= qtd_carne * valor_carne_p2
+    print('Produto:         Quantidade:         Valor Unitário:         Valor Total:')
+    print(f'{nome_carne}       {qtd_carne}                 {valor_carne_p2}                     {valor_bruto:,.2f}')
+
+desconto_adicional = (valor_bruto * 5) / 100
+total_pagar = valor_bruto - desconto_adicional
+if cartao_loja == 'S':
+    print(f'\nGanhou um desconto adicional de 5%: R$ {desconto_adicional:,.2f}')
+    print(f'O valor a para é: R$ {total_pagar:,.2f}\n')
+else:
+    print(f'\nO valor a pagar é: R$ {valor_bruto}\n')
+'''
+
