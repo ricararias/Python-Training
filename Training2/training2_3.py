@@ -455,7 +455,7 @@ else:
 
 
 #Faça um programa que calcule o mostre a média aritmética de N notas.
-
+'''
 print("Calculo de média de N notas")
 
 numero = int(input("Quantas notas serão calculadas: "))
@@ -470,5 +470,81 @@ for i in range(numero):
 media = soma / numero
 
 print(f'Média das {numero} notas informadas: {media:,.2f}')
+'''
 
+#Faça um programa que peça para n pessoas a sua idade, ao final o programa devera verificar 
+#se a média de idade da turma varia entre 0 e 25,26 e 60 e maior que 60; e então, dizer se a 
+#turma é jovem, adulta ou idosa, conforme a média calculada.
+'''
+pessoas = int(input("Quantidade de alunos a serem cadastrados: "))
+faixas = [] 
 
+for i in range(pessoas):
+    idades = int(input(f'Digite a idade do aluno {i+1}: '))
+    faixas.append(idades)
+
+soma = sum(faixas)
+
+media = soma / pessoas
+
+if media >= 0 and media <= 20:
+    print(f'A turma é jovem, com média de idades = {media}')
+elif media > 20 and media <= 60:
+    print(f'A turma é adulta, com média de idades = {media}')
+else:
+    print(f'A turma é idosa, com média de idades = {media}')
+'''
+
+#Numa eleição existem três candidatos. Faça um programa que peça o número total de eleitores. 
+#Peça para cada eleitor votar e ao final mostrar o número de votos de cada candidato.
+'''
+eleitores = int(input("Informe a quantidade de eleitores: "))
+cand1 = 0
+cand2 = 0
+cand3 = 0
+
+for index in range(eleitores):    
+    voto = int(input(f'Voto do eleitor {index+1} (1,2 ou 3): '))
+    if voto == 1:
+        cand1 += 1
+    elif voto == 2:
+        cand2 += 1
+    elif voto == 3:
+        cand3 += 1
+    else:
+        print("Deve digitar: 1, 2 ou 3")
+        
+print(f'O candidato 1 recebeu: {cand1} votos\n'
+      f'O candidato 2 recebeu: {cand2} votos\n'
+      f'O candidato 3 recebeu: {cand3} votos\n')
+'''
+
+#Faça um programa que calcule o número médio de alunos por turma. Para isto, 
+#peça a quantidade de turmas e a quantidade de alunos para cada turma. As turmas não podem 
+#ter mais de 40 alunos.
+'''
+import math
+alunos = []
+entrada = True
+turma = 1
+entrada = False
+while entrada == False:
+    turmas = int(input("Digite a quantidade de turmas: "))
+    if turmas < 1:
+        print("Quantidade de turmas não pode ser inferior a 1")
+    else:
+        entrada = True
+
+while turmas > len(alunos):
+    qtde = int(input(f'Digite a quantidade de alunos para a turma {turma}: '))
+    if qtde < 0 or qtde > 40:
+        print("A turma nao pode ser inferior a '0' ou maior que '40'")
+    else:
+        alunos.append(qtde)
+        turma = turma + 1
+
+soma = sum(alunos)
+media = soma / turmas
+print(alunos)
+print(f'O numero médio de alunos por turma é {math.floor(media)}')
+'''
