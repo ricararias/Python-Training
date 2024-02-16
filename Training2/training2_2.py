@@ -95,7 +95,7 @@ print(f'O Menor numero digitado foi {min(numeros)}')
 '''
 precos=[]
 for index in range(3):
-    elemento= float(input('Digite o preco do produto: '))
+    elemento= float(input(f'Digite o preco do produto {index + 1}:'))
     precos.append(elemento)
 
 print(f'O produto mais economico custa R$ {min(precos)}')
@@ -367,7 +367,7 @@ print("O ano NAO é bissexto")
 '''
 
 #Faça um Programa que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
-'''
+
 meses = {
     'janeiro' : 31,
     'fevereiro' : 29,
@@ -454,7 +454,7 @@ while data_correta == False:
     else:
         print(f'A data informada: {data_dia}/{data_mes}/{data_ano} esta CORRETA')
         data_correta = True
-'''
+
 
 #Faça um Programa que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
 #Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
